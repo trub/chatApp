@@ -8,7 +8,7 @@
         <!--Chat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -218,7 +218,7 @@
         <!--Chat-->
         <scene sceneID="ziA-Df-b9a">
             <objects>
-                <viewController id="Z0p-Gm-kMg" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="Z0p-Gm-kMg" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zjn-Yw-usV"/>
                         <viewControllerLayoutGuide type="bottom" id="k4t-bo-hCH"/>
@@ -268,6 +268,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signupButtonPressed:" destination="Z0p-Gm-kMg" eventType="touchUpInside" id="aHL-Fm-zWh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -293,6 +296,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="auo-2c-Czu"/>
+                    <connections>
+                        <outlet property="emailField" destination="uVs-52-n76" id="LHo-18-CcR"/>
+                        <outlet property="passwordField" destination="tGR-ky-tGA" id="piy-5r-Xjw"/>
+                        <outlet property="usernameField" destination="pey-X6-pLd" id="RGF-7l-fgn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CX-eT-YUp" sceneMemberID="firstResponder"/>
             </objects>
