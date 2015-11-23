@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
 
 @interface LoginViewController ()
 
@@ -19,19 +20,36 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)loginButtonPressed:(id)sender {
+    NSString *username = [self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if ([username length] ==0 || [password length] == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oh No!" message:@"Please make sure you enter a username and a password" preferredStyle:UIAlertControllerStyleAlert]; // 7
+        
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            NSLog(@"You pressed button OK");
+        }]; // 8
+        
+        [alert addAction:defaultAction]; // 9
+        
+        
+        [self presentViewController:alert animated:YES completion:nil]; // 11
+        
+    } else {
+        
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+            if (error) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oh No!" message:@"Please make sure you enter a username, password, and an email address" preferredStyle:UIAlertControllerStyleAlert];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            } else {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+        }];
+ 
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

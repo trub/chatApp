@@ -49,6 +49,9 @@
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GIJ-Vv-SGS"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtn-HT-b5E">
                                         <rect key="frame" x="0.0" y="174" width="304" height="17"/>
@@ -91,6 +94,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="I4F-ei-LB9"/>
+                    <connections>
+                        <outlet property="passwordField" destination="cua-4e-hVj" id="WUw-f1-bJk"/>
+                        <outlet property="usernameField" destination="WIa-Qa-uZt" id="Xih-2g-pd5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +129,13 @@
                             <outlet property="delegate" destination="aWr-Uh-qEt" id="ohh-we-eO3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Chat" id="wDF-EV-oV0"/>
+                    <navigationItem key="navigationItem" title="Chat" id="wDF-EV-oV0">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="4te-0M-xst">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="aWr-Uh-qEt" id="dkp-rX-eJV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="showLogin" id="JaC-Pf-now"/>
                     </connections>
