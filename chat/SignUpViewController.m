@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import <Parse/Parse.h>
 
 @interface SignUpViewController ()
 
@@ -38,6 +39,22 @@
         
         [self presentViewController:alert animated:YES completion:nil]; // 11
 
+    }
+    else {
+        PFUser *newUser = [PFUser user];
+        newUser.username = username;
+        newUser.password = password;
+        newUser.email = email;
+        
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oh No!" message:@"Please make sure you enter a username, password, and an email address" preferredStyle:UIAlertControllerStyleAlert];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            } else {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        }];
     }
 }
 @end
