@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Chat-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
@@ -93,7 +93,7 @@
                             <constraint firstAttribute="trailing" secondItem="9Wj-ff-U6I" secondAttribute="trailing" constant="8" id="uEp-R6-bDk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="I4F-ei-LB9"/>
+                    <navigationItem key="navigationItem" title="Login" id="I4F-ei-LB9"/>
                     <connections>
                         <outlet property="passwordField" destination="cua-4e-hVj" id="WUw-f1-bJk"/>
                         <outlet property="usernameField" destination="WIa-Qa-uZt" id="Xih-2g-pd5"/>
@@ -228,7 +228,7 @@
             </objects>
             <point key="canvasLocation" x="1190" y="-437"/>
         </scene>
-        <!--Chat-->
+        <!--Signup-->
         <scene sceneID="ziA-Df-b9a">
             <objects>
                 <viewController id="Z0p-Gm-kMg" customClass="SignUpViewController" sceneMemberID="viewController">
@@ -308,7 +308,7 @@
                             <constraint firstItem="n4V-0K-RIt" firstAttribute="leading" secondItem="hHn-dg-we3" secondAttribute="leading" constant="8" id="aNk-d3-4Ko"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="auo-2c-Czu"/>
+                    <navigationItem key="navigationItem" title="Signup" id="auo-2c-Czu"/>
                     <connections>
                         <outlet property="emailField" destination="uVs-52-n76" id="LHo-18-CcR"/>
                         <outlet property="passwordField" destination="tGR-ky-tGA" id="piy-5r-Xjw"/>

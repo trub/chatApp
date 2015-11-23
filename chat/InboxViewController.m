@@ -24,8 +24,6 @@
     } else {
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,9 +43,16 @@
 }
 
 - (IBAction)logoutButtonPressed:(UIBarButtonItem *)sender {
-    [PFUser logOut];
+    NSLog(@"the user just logged out");
     [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showLogin"]) {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    }
+}
+
 @end
 
 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface InboxViewController : UITableViewController
-- (IBAction)logoutButtonPressed:(UIBarButtonItem *)sender;
+- (IBAction)logoutButtonPressed:(id *)sender;
 
 @end
