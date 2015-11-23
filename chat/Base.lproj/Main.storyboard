@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -205,7 +206,7 @@
             </objects>
             <point key="canvasLocation" x="218" y="-370"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Amigos-->
         <scene sceneID="GZ9-vi-fMy">
             <objects>
                 <tableViewController id="ors-01-1sy" sceneMemberID="viewController">
@@ -231,11 +232,49 @@
                             <outlet property="delegate" destination="ors-01-1sy" id="tS3-Ta-sY1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SyA-Cc-uFA"/>
+                    <navigationItem key="navigationItem" title="Amigos" id="SyA-Cc-uFA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="cjy-dA-12G">
+                            <connections>
+                                <segue destination="iDn-Yd-bWL" kind="push" id="Lny-1w-l3x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2e-wu-aWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198" y="296"/>
+        </scene>
+        <!--Add Homies-->
+        <scene sceneID="8hr-DI-gcJ">
+            <objects>
+                <tableViewController id="iDn-Yd-bWL" customClass="EditFriendsController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tlp-DU-QVm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="hsN-Mh-Lqm" customClass="Cell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hsN-Mh-Lqm" id="w4p-jM-Es6">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iDn-Yd-bWL" id="9QW-9H-swu"/>
+                            <outlet property="delegate" destination="iDn-Yd-bWL" id="XBF-kn-ypW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Homies" id="BeX-dr-hXA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="saO-GF-tNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592" y="296"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="tyn-0a-mCa">
@@ -359,6 +398,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CX-eT-YUp" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2301" y="-1066"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aXw-R6-nCH">
+            <objects>
+                <viewController id="N4q-zF-LXr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5vQ-pP-B3x"/>
+                        <viewControllerLayoutGuide type="bottom" id="2er-Pi-RVw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jzz-65-Xbi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chat uses the phone numbers in your" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="7Dx-XF-pmc">
+                                <rect key="frame" x="16" y="52" width="288" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XdV-Ba-RB6">
+                                <rect key="frame" x="40" y="90" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.53316247317829379" blue="0.46913826375731138" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Bdr-dL-jyM"/>
+                                    <constraint firstAttribute="width" constant="240" id="Pro-rW-vpv"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpv-hm-PPm">
+                                <rect key="frame" x="16" y="505" width="288" height="63"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Gtu-k9-0py"/>
+                                </constraints>
+                                <state key="normal" title="Continue"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2er-Pi-RVw" firstAttribute="top" secondItem="dpv-hm-PPm" secondAttribute="bottom" id="6uv-ix-z1Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dpv-hm-PPm" secondAttribute="trailing" id="82z-U2-CO3"/>
+                            <constraint firstItem="XdV-Ba-RB6" firstAttribute="centerX" secondItem="Jzz-65-Xbi" secondAttribute="centerX" id="E46-N3-J8S"/>
+                            <constraint firstItem="dpv-hm-PPm" firstAttribute="top" secondItem="XdV-Ba-RB6" secondAttribute="bottom" constant="287" id="KEK-s7-OTP"/>
+                            <constraint firstItem="7Dx-XF-pmc" firstAttribute="top" secondItem="5vQ-pP-B3x" secondAttribute="bottom" constant="32" id="MzR-NM-ojK"/>
+                            <constraint firstItem="7Dx-XF-pmc" firstAttribute="leading" secondItem="Jzz-65-Xbi" secondAttribute="leadingMargin" id="Rp9-l2-anF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Dx-XF-pmc" secondAttribute="trailing" id="VYu-fl-DTV"/>
+                            <constraint firstItem="XdV-Ba-RB6" firstAttribute="top" secondItem="7Dx-XF-pmc" secondAttribute="bottom" constant="8" id="aBG-My-eEi"/>
+                            <constraint firstItem="dpv-hm-PPm" firstAttribute="leading" secondItem="Jzz-65-Xbi" secondAttribute="leadingMargin" id="spA-Xf-lHD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PyK-Td-zbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2671" y="-1066"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="P36-NL-Bdv">

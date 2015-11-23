@@ -33,6 +33,7 @@
 		E19F19E01C01986800E8A2BA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F19DF1C01986800E8A2BA /* LoginViewController.m */; };
 		E19F19E31C01987D00E8A2BA /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F19E21C01987D00E8A2BA /* SignUpViewController.m */; };
 		E1CA06F71C02DA6E001E52D1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA06F61C02DA6E001E52D1 /* HomeViewController.m */; };
+		E1CA06FA1C02E597001E52D1 /* EditFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA06F91C02E597001E52D1 /* EditFriendsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		E19F19E21C01987D00E8A2BA /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E1CA06F51C02DA6E001E52D1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		E1CA06F61C02DA6E001E52D1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		E1CA06F81C02E597001E52D1 /* EditFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFriendsController.h; sourceTree = "<group>"; };
+		E1CA06F91C02E597001E52D1 /* EditFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFriendsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,10 @@
 		E19F19E41C01988C00E8A2BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1CA06F81C02E597001E52D1 /* EditFriendsController.h */,
+				E1CA06F91C02E597001E52D1 /* EditFriendsController.m */,
+				E1CA06F51C02DA6E001E52D1 /* HomeViewController.h */,
+				E1CA06F61C02DA6E001E52D1 /* HomeViewController.m */,
 				E19F19B41C018C2300E8A2BA /* InboxViewController.h */,
 				E19F19B51C018C2300E8A2BA /* InboxViewController.m */,
 				E19F19DE1C01986800E8A2BA /* LoginViewController.h */,
@@ -175,8 +182,6 @@
 				E19F19E21C01987D00E8A2BA /* SignUpViewController.m */,
 				E19F19911C01838C00E8A2BA /* ViewController.h */,
 				E19F19921C01838C00E8A2BA /* ViewController.m */,
-				E1CA06F51C02DA6E001E52D1 /* HomeViewController.h */,
-				E1CA06F61C02DA6E001E52D1 /* HomeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				E19F19B61C018C2300E8A2BA /* InboxViewController.m in Sources */,
 				E1CA06F71C02DA6E001E52D1 /* HomeViewController.m in Sources */,
 				E19F19E01C01986800E8A2BA /* LoginViewController.m in Sources */,
+				E1CA06FA1C02E597001E52D1 /* EditFriendsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
