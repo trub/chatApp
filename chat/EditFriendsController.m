@@ -67,17 +67,39 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
-    //creates relation so users can add friends within the network
+    PFUser* user = [self.allUsers objectAtIndex:indexPath.row];
     PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelation"];
-    PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
-    [friendsRelation addObject:user];
+
+    
+    if ([self isFriend:user]) {
+        //1.remove the checkmark
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        
+        //2.remove from friends array
+        for (PFUser *friend in self.friends) {
+            if ([friend.objectId isEqualToString:user.objectId]) {
+                [self.friends removeObject:friend];
+                break;
+            }
+        }
+        
+        //3.remove from backend
+        [friendsRelation removeObject:user];
+    }
+    else {
+        //creates relation so users can add friends within the network
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.friends addObject:user];
+        [friendsRelation addObject:user];
+    }
+    
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+  
 }
 
 #pragma mark - Helper Methods
@@ -86,7 +108,6 @@
     for (PFUser *friend in self.friends) {
         if ([friend.objectId isEqualToString:user.objectId]) {
             return YES;
-            NSLog(@"objectID");
         }
     }
     return NO;
