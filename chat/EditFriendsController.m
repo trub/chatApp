@@ -30,8 +30,8 @@
     }];
     
     self.currentUser = [PFUser currentUser];
-
 }
+
 
 
 #pragma mark - Table view data source
@@ -44,14 +44,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
     
+    if ([self isFriend:user]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
+
+#pragma mark - Table View Delegate 
+
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,6 +80,24 @@ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" for
     }];
 }
 
+#pragma mark - Helper Methods
+
+- (BOOL)isFriend:(PFUser *)user {
+    for (PFUser *friend in self.friends) {
+        if ([friend.objectId isEqualToString:user.objectId]) {
+            return YES;
+            NSLog(@"objectID");
+        }
+    }
+    return NO;
+}
+
 
 
 @end
+
+
+
+
+
+
