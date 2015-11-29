@@ -83,15 +83,16 @@
                 break;
             }
         }
-        
         //3.remove from backend
         [friendsRelation removeObject:user];
+        
     }
     else {
         //creates relation so users can add friends within the network
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.friends addObject:user];
         [friendsRelation addObject:user];
+
     }
     
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {

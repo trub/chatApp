@@ -27,7 +27,7 @@
         }
         else {
             self.friends = objects;
-            self.tableView.reloadData;
+            [self.tableView reloadData];
         }
     }];
     
