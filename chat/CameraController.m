@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.friendsRelation = [[PFUser currentUser] objectForKey:@"friendsRelation"];
+    self.recipients = [[NSMutableArray alloc]init];
+
 
 }
 
@@ -88,12 +90,15 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    PFUser *user = [self.friends objectAtIndex:indexPath.row];
     
     if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.recipients addObject:user.objectId];
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.recipients removeObject:user.objectId];
     }
 }
 

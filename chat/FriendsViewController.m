@@ -20,6 +20,7 @@
     [super viewDidLoad];
     self.friendsRelation = [[PFUser currentUser] objectForKey:@"friendsRelation"];
     
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
