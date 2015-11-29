@@ -276,7 +276,7 @@
             </objects>
             <point key="canvasLocation" x="1592" y="296"/>
         </scene>
-        <!--Camera Controller-->
+        <!--Send to-->
         <scene sceneID="tyn-0a-mCa">
             <objects>
                 <tableViewController id="mJx-3s-a9C" customClass="CameraController" sceneMemberID="viewController">
@@ -286,7 +286,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="U6C-3A-QyQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="U6C-3A-QyQ">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U6C-3A-QyQ" id="vev-aT-0pU">
@@ -302,7 +302,7 @@
                             <outlet property="delegate" destination="mJx-3s-a9C" id="1Wd-wS-mR6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SSO-CC-3Zj"/>
+                    <navigationItem key="navigationItem" title="Send to" id="SSO-CC-3Zj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOr-3m-uq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
