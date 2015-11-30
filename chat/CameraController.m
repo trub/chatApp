@@ -71,6 +71,7 @@
     return [self.friends count];
 }
 
+#pragma mark - Table view delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -89,8 +90,6 @@
     
 
 }
-
-#pragma mark - Table view delegate
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -193,6 +192,7 @@
     
     PFFile *file = [PFFile fileWithName:fileName data:fileData];
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
         if (error) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"An Error Occurred!" message:@"Please try sending your message again." preferredStyle:UIAlertControllerStyleAlert];
             [self presentViewController:alert animated:YES completion:nil];
@@ -204,10 +204,12 @@
             [message setObject:self.recipients forKey:@"recipientsIds"];
             [message setObject:[[PFUser currentUser]objectId] forKey:@"senderId"];
             [message setObject:[[PFUser currentUser]username] forKey:@"senderName"];
-            [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (error) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"An Error Occurred!" message:@"Please try sending your message again." preferredStyle:UIAlertControllerStyleAlert];
                     [self presentViewController:alert animated:YES completion:nil];
+                    
+                    
                 }
                 else {
                     [self reset];

@@ -176,6 +176,7 @@
 		E19F19E41C01988C00E8A2BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1CA07B91C0C0096001E52D1 /* Inbox */,
 				E1CA077E1C0440F3001E52D1 /* Camera */,
 				E1CA07051C037756001E52D1 /* Friends */,
 				E1CA07041C037742001E52D1 /* Accounts */,
@@ -190,8 +191,6 @@
 			children = (
 				E1CA06F51C02DA6E001E52D1 /* HomeViewController.h */,
 				E1CA06F61C02DA6E001E52D1 /* HomeViewController.m */,
-				E19F19B41C018C2300E8A2BA /* InboxViewController.h */,
-				E19F19B51C018C2300E8A2BA /* InboxViewController.m */,
 				E19F19DE1C01986800E8A2BA /* LoginViewController.h */,
 				E19F19DF1C01986800E8A2BA /* LoginViewController.m */,
 				E19F19E11C01987D00E8A2BA /* SignUpViewController.h */,
@@ -218,6 +217,15 @@
 				E1CA07801C044595001E52D1 /* CameraController.m */,
 			);
 			name = Camera;
+			sourceTree = "<group>";
+		};
+		E1CA07B91C0C0096001E52D1 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				E19F19B41C018C2300E8A2BA /* InboxViewController.h */,
+				E19F19B51C018C2300E8A2BA /* InboxViewController.m */,
+			);
+			name = Inbox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

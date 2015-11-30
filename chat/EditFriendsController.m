@@ -68,9 +68,8 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    PFUser* user = [self.allUsers objectAtIndex:indexPath.row];
     PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelation"];
-
+    PFUser* user = [self.allUsers objectAtIndex:indexPath.row];
     
     if ([self isFriend:user]) {
         //1.remove the checkmark
@@ -92,10 +91,9 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.friends addObject:user];
         [friendsRelation addObject:user];
-
     }
     
-    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }

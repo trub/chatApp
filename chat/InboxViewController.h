@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface InboxViewController : UITableViewController
+
+@property (nonatomic, strong) NSArray *messages;
+
 - (IBAction)logoutButtonPressed:(id *)sender;
 
 @end

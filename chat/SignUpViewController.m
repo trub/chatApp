@@ -46,7 +46,7 @@
         newUser.password = password;
         newUser.email = email;
         
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (error) {
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oh No!" message:@"Please make sure you enter a username, password, and an email address" preferredStyle:UIAlertControllerStyleAlert];
                 [self presentViewController:alert animated:YES completion:nil];
