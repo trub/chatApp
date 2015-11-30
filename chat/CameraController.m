@@ -77,6 +77,13 @@
     PFUser *user = [self.friends objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
     
+    if ([self.recipients containsObject:user.objectId]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
     
 
@@ -100,6 +107,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.recipients removeObject:user.objectId];
     }
+    NSLog(@"%@", self.recipients);
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -137,9 +145,20 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
-    
 }
 
+#pragma mark - IBActions
+
+- (IBAction)cancel:(id)sender {
+    self.image = nil;
+    self.videoFilePath = nil;
+    [self.recipients removeAllObjects];
+    
+    [self.tabBarController setSelectedIndex:0];
+}
+
+- (IBAction)send:(id)sender {
+}
 @end
 
 

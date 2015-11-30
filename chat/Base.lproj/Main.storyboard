@@ -302,7 +302,18 @@
                             <outlet property="delegate" destination="mJx-3s-a9C" id="1Wd-wS-mR6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Send to" id="SSO-CC-3Zj"/>
+                    <navigationItem key="navigationItem" title="Send to" id="SSO-CC-3Zj">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="Hk9-lQ-1fY">
+                            <connections>
+                                <action selector="cancel:" destination="mJx-3s-a9C" id="HCv-YR-TJo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="send" id="gSC-OH-hgq">
+                            <connections>
+                                <action selector="send:" destination="mJx-3s-a9C" id="G7M-Wg-7tO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOr-3m-uq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
