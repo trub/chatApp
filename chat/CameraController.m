@@ -161,7 +161,6 @@
     }
     else {
         [self uploadMessage];
-        [self reset];
         [self.tabBarController setSelectedIndex:0];
     }
 }
@@ -211,7 +210,8 @@
                     [self presentViewController:alert animated:YES completion:nil];
                 }
                 else {
-                    //we good!
+                    [self reset];
+
                 }
             }];
             
