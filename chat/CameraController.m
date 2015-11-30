@@ -40,23 +40,24 @@
         }
     }];
     
-    self.imagePicker = [[UIImagePickerController alloc]init];
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = NO;
-    self.imagePicker.videoMaximumDuration = 10;
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        self.imagePicker.sourceType = UIImagePickerControllerCameraDeviceFront;
-    }
-    else {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    
-    self.imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:self.imagePicker.sourceType];
-    
-    [self presentViewController: self.imagePicker animated:NO completion:nil];
+    if (self.image == nil && [self.videoFilePath length]==0) {
+        self.imagePicker = [[UIImagePickerController alloc]init];
+        self.imagePicker.delegate = self;
+        self.imagePicker.allowsEditing = NO;
+        self.imagePicker.videoMaximumDuration = 10;
+        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            self.imagePicker.sourceType = UIImagePickerControllerCameraDeviceFront;
+        }
+        else {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+        
+        self.imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:self.imagePicker.sourceType];
+        
+        [self presentViewController: self.imagePicker animated:NO completion:nil];
 
-    
+    }
 }
 
 
@@ -111,8 +112,7 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self dismissViewControllerAnimated:NO completion:nil];
     [self.tabBarController setSelectedIndex:0];
     
 }
@@ -137,9 +137,6 @@
                 UISaveVideoAtPathToSavedPhotosAlbum(self.videoFilePath, nil, nil, nil);
 
             }
-            else {
-                NSLog(@"fail");
-            }
         }
     }
     
@@ -160,8 +157,7 @@
     
     if (self.image == nil && [self.videoFilePath length] == 0) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Try Again!" message:@"Please select a photo or video to share." preferredStyle:UIAlertControllerStyleAlert];
-        [self presentViewController:alert animated:YES completion:nil];
-
+        [self presentViewController:alert animated:NO completion:nil];
     }
     else {
         [self uploadMessage];
@@ -179,15 +175,48 @@
 }
 
 - (void)uploadMessage {
+    NSData *fileData;
+    NSString *fileName;
+    NSString *fileType;
+    
     
     if (self.image != nil) {
         UIImage *newImage = [self resizeImage:self.image toWidth:320.0 andHeight: 480.0];
+        fileData = UIImagePNGRepresentation(newImage);
+        fileName = @"image.png";
+        fileType = @"image";
+    }
+    else {
+        fileData = [NSData dataWithContentsOfFile:self.videoFilePath];
+        fileName = @"video.mov";
+        fileType = @"video";
     }
     
-    //check if its an image or video
-    //if image shrink it
-    //uplod the file itself
-    //upload the message details
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"An Error Occurred!" message:@"Please try sending your message again." preferredStyle:UIAlertControllerStyleAlert];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else {
+            PFObject *message = [PFObject objectWithClassName:@"Messages"];
+            [message setObject:file forKey:@"file"];
+            [message setObject:fileType forKey:@"fileType"];
+            [message setObject:self.recipients forKey:@"recipientsIds"];
+            [message setObject:[[PFUser currentUser]objectId] forKey:@"senderId"];
+            [message setObject:[[PFUser currentUser]username] forKey:@"senderName"];
+            [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (error) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"An Error Occurred!" message:@"Please try sending your message again." preferredStyle:UIAlertControllerStyleAlert];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+                else {
+                    //we good!
+                }
+            }];
+            
+        }
+    }];
     
 }
 
