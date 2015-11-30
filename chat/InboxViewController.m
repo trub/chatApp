@@ -30,7 +30,7 @@
     [super viewWillAppear:animated];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
-    [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
+    [query whereKey:@"recipientsIds" equalTo:[[PFUser currentUser] objectId]];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {

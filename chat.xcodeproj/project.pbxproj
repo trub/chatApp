@@ -129,9 +129,9 @@
 		E19F198A1C01838C00E8A2BA /* chat */ = {
 			isa = PBXGroup;
 			children = (
-				E19F19E41C01988C00E8A2BA /* Controllers */,
 				E19F198E1C01838C00E8A2BA /* AppDelegate.h */,
 				E19F198F1C01838C00E8A2BA /* AppDelegate.m */,
+				E19F19E41C01988C00E8A2BA /* Controllers */,
 				E19F19941C01838C00E8A2BA /* Main.storyboard */,
 				E19F19971C01838C00E8A2BA /* Assets.xcassets */,
 				E19F19991C01838C00E8A2BA /* LaunchScreen.storyboard */,
