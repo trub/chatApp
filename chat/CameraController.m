@@ -149,22 +149,60 @@
 
 #pragma mark - IBActions
 
+
 - (IBAction)cancel:(id)sender {
-    self.image = nil;
-    self.videoFilePath = nil;
-    [self.recipients removeAllObjects];
+    [self reset];
     
     [self.tabBarController setSelectedIndex:0];
 }
 
 - (IBAction)send:(id)sender {
+    
+    if (self.image == nil && [self.videoFilePath length] == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Try Again!" message:@"Please select a photo or video to share." preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+
+    }
+    else {
+        [self uploadMessage];
+        [self reset];
+        [self.tabBarController setSelectedIndex:0];
+    }
 }
+
+#pragma mark = Helper methods
+
+- (void)reset {
+    self.image = nil;
+    self.videoFilePath = nil;
+    [self.recipients removeAllObjects];
+}
+
+- (void)uploadMessage {
+    
+    if (self.image != nil) {
+        UIImage *newImage = [self resizeImage:self.image toWidth:320.0 andHeight: 480.0];
+    }
+    
+    //check if its an image or video
+    //if image shrink it
+    //uplod the file itself
+    //upload the message details
+    
+}
+
+- (UIImage *)resizeImage:(UIImage *)image toWidth:(float)width andHeight:(float)height {
+    CGSize newSize = CGSizeMake(width, height);
+    CGRect newRectangle = CGRectMake(0, 0, width, height);
+    UIGraphicsBeginImageContext(newSize);
+    [self.image drawInRect:newRectangle];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
+}
+
 @end
-
-
-
-
-
 
 
 
