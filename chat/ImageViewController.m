@@ -20,14 +20,25 @@
     
     [super viewDidLoad];
     PFFile *imageFile = [self.message objectForKey:@"file"];
-    
-//    NSURL *imageFileURL = [[NSURL alloc]initWithString:imageFile.url];
-//    
-//    NSData *imageData = [NSData dataWithContentsOfURL:imageFileURL];
-//    
-//    self.imageView.image = [UIImage imageWithData:imageData];
     self.imageView.image = [UIImage imageWithData:[imageFile getData]];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if ([self respondsToSelector:@selector(timeout)]) {
+        [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else {
+        NSLog(@"error");
+    }
+}
+
+#pragma mark - Helper Functions
+
+- (void) timeout {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
