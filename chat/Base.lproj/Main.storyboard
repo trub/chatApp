@@ -105,7 +105,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="3U1-3X-GMl" kind="push" identifier="showLogin" id="B7G-Lf-N67"/>
+                                    <segue destination="yvu-wh-CPf" kind="modal" identifier="showImage" modalTransitionStyle="crossDissolve" id="6oz-C2-XXU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="102-L4-t0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="-1066"/>
+            <point key="canvasLocation" x="1646" y="-1060"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Juw-Y2-iiN">
@@ -465,6 +465,37 @@
             </objects>
             <point key="canvasLocation" x="2671" y="-1066"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="gBR-Nd-2SN">
+            <objects>
+                <viewController id="yvu-wh-CPf" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Aw-qC-rIr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Boc-HX-CNT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i0a-LM-Kvc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKB-d3-oNa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VKB-d3-oNa" firstAttribute="height" secondItem="i0a-LM-Kvc" secondAttribute="height" id="Hf7-2y-uh6"/>
+                            <constraint firstItem="VKB-d3-oNa" firstAttribute="centerX" secondItem="i0a-LM-Kvc" secondAttribute="centerX" id="ZOf-OU-XQ2"/>
+                            <constraint firstItem="VKB-d3-oNa" firstAttribute="width" secondItem="i0a-LM-Kvc" secondAttribute="width" id="idI-wy-KXd"/>
+                            <constraint firstItem="VKB-d3-oNa" firstAttribute="centerY" secondItem="i0a-LM-Kvc" secondAttribute="centerY" id="yZN-yH-ALb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDg-Ru-vcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="-1810"/>
+        </scene>
         <!--Inbox-->
         <scene sceneID="P36-NL-Bdv">
             <objects>
@@ -483,7 +514,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4O-GQ-kdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648" y="-1066"/>
+            <point key="canvasLocation" x="692" y="-1152"/>
         </scene>
         <!--Friends-->
         <scene sceneID="m6p-87-tI6">

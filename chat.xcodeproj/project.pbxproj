@@ -36,6 +36,7 @@
 		E1CA06FA1C02E597001E52D1 /* EditFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA06F91C02E597001E52D1 /* EditFriendsController.m */; };
 		E1CA07031C037739001E52D1 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA07021C037739001E52D1 /* FriendsViewController.m */; };
 		E1CA07811C044595001E52D1 /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA07801C044595001E52D1 /* CameraController.m */; };
+		E1CA08761C1409BD001E52D1 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA08751C1409BD001E52D1 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		E1CA07021C037739001E52D1 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		E1CA077F1C044595001E52D1 /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
 		E1CA07801C044595001E52D1 /* CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
+		E1CA08741C1409BD001E52D1 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		E1CA08751C1409BD001E52D1 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +227,8 @@
 			children = (
 				E19F19B41C018C2300E8A2BA /* InboxViewController.h */,
 				E19F19B51C018C2300E8A2BA /* InboxViewController.m */,
+				E1CA08741C1409BD001E52D1 /* ImageViewController.h */,
+				E1CA08751C1409BD001E52D1 /* ImageViewController.m */,
 			);
 			name = Inbox;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				E19F19931C01838C00E8A2BA /* ViewController.m in Sources */,
 				E19F19901C01838C00E8A2BA /* AppDelegate.m in Sources */,
 				E19F19E31C01987D00E8A2BA /* SignUpViewController.m in Sources */,
+				E1CA08761C1409BD001E52D1 /* ImageViewController.m in Sources */,
 				E1CA07031C037739001E52D1 /* FriendsViewController.m in Sources */,
 				E19F198D1C01838C00E8A2BA /* main.m in Sources */,
 				E19F19B61C018C2300E8A2BA /* InboxViewController.m in Sources */,
