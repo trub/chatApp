@@ -10,20 +10,24 @@
 
 @interface ImageViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation ImageViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    PFFile *imageFile = [self.message objectForKey:@"file"];
+    
+//    NSURL *imageFileURL = [[NSURL alloc]initWithString:imageFile.url];
+//    
+//    NSData *imageData = [NSData dataWithContentsOfURL:imageFileURL];
+//    
+//    self.imageView.image = [UIImage imageWithData:imageData];
+    self.imageView.image = [UIImage imageWithData:[imageFile getData]];
+
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 @end

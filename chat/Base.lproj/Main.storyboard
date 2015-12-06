@@ -491,6 +491,9 @@
                             <constraint firstItem="VKB-d3-oNa" firstAttribute="centerY" secondItem="i0a-LM-Kvc" secondAttribute="centerY" id="yZN-yH-ALb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="VKB-d3-oNa" id="6Ol-dp-n7r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDg-Ru-vcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

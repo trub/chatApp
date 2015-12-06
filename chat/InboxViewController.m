@@ -7,7 +7,7 @@
 //
 
 #import "InboxViewController.h"
-#import <Parse/Parse.h>
+#import "ImageViewController.h"
 
 @interface InboxViewController ()
 
@@ -84,8 +84,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PFObject *message = [self.messages objectAtIndex:indexPath.row];
-    NSString *fileType = [message objectForKey:@"fileType"];
+    self.selectedMessage = [self.messages objectAtIndex:indexPath.row];
+    NSString *fileType = [self.selectedMessage objectForKey:@"fileType"];
     if ([fileType isEqualToString:@"image"]) {
         [self performSegueWithIdentifier:@"showImage" sender:self];
     }
@@ -107,6 +107,12 @@
     if([segue.identifier isEqualToString:@"showLogin"]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     }
+    else if([segue.identifier isEqualToString:@"showImage"]){
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        ImageViewController *imageViewController =  (ImageViewController *)segue.destinationViewController;
+        imageViewController.message = self.selectedMessage;
+    }
+
 }
 
 @end
