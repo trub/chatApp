@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.moviePlayer = [[MPMoviePlayerController alloc]init];
+    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         NSLog(@"Current user: %@", currentUser.username);
@@ -90,6 +92,15 @@
         [self performSegueWithIdentifier:@"showImage" sender:self];
     }
     else {
+        PFFile *videoFile = [self.selectedMessage objectForKey:@"file"];
+        NSURL *videoURL = [NSURL URLWithString:videoFile.url];
+        self.moviePlayer.contentURL = videoURL;
+        [self.moviePlayer prepareToPlay];
+        
+        [self.view addSubview:self.moviePlayer.view];
+        [self.moviePlayer setFullscreen:YES animated:YES];
+        
+        
     }
     
 }
@@ -104,6 +115,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if([segue.identifier isEqualToString:@"showLogin"]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     }
@@ -114,6 +126,9 @@
     }
 
 }
+
+
+
 
 @end
 

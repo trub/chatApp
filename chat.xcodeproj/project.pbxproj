@@ -37,6 +37,8 @@
 		E1CA07031C037739001E52D1 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA07021C037739001E52D1 /* FriendsViewController.m */; };
 		E1CA07811C044595001E52D1 /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA07801C044595001E52D1 /* CameraController.m */; };
 		E1CA08761C1409BD001E52D1 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CA08751C1409BD001E52D1 /* ImageViewController.m */; };
+		E1CA08781C14C106001E52D1 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CA08771C14C106001E52D1 /* AVKit.framework */; };
+		E1CA087A1C14E5B3001E52D1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CA08791C14E5B3001E52D1 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		E1CA07801C044595001E52D1 /* CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		E1CA08741C1409BD001E52D1 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		E1CA08751C1409BD001E52D1 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		E1CA08771C14C106001E52D1 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		E1CA08791C14E5B3001E52D1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1CA087A1C14E5B3001E52D1 /* MediaPlayer.framework in Frameworks */,
+				E1CA08781C14C106001E52D1 /* AVKit.framework in Frameworks */,
 				E19F19DD1C0196A800E8A2BA /* libsqlite3.tbd in Frameworks */,
 				E19F19DB1C01969B00E8A2BA /* libz.tbd in Frameworks */,
 				E19F19C81C01959000E8A2BA /* AudioToolbox.framework in Frameworks */,
@@ -155,6 +161,8 @@
 		E19F19B91C01952400E8A2BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1CA08791C14E5B3001E52D1 /* MediaPlayer.framework */,
+				E1CA08771C14C106001E52D1 /* AVKit.framework */,
 				E19F19DC1C0196A800E8A2BA /* libsqlite3.tbd */,
 				E19F19DA1C01969B00E8A2BA /* libz.tbd */,
 				E19F19C71C01959000E8A2BA /* AudioToolbox.framework */,

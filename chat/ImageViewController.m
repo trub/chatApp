@@ -10,32 +10,44 @@
 
 @interface ImageViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @end
 
 @implementation ImageViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    PFFile *imageFile = [self.message objectForKey:@"file"];
-    self.imageView.image = [UIImage imageWithData:[imageFile getData]];
+    self.navigationController.navigationBarHidden = YES;
 
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    if ([self respondsToSelector:@selector(timeout)]) {
-        [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    PFFile *imageFile = [self.message objectForKey:@"file"];
+    UIImage *imageData = [UIImage imageWithData:[imageFile getData]];
+    if (imageData != NULL) {
+        self.imageView.image = imageData;
     }
     else {
         NSLog(@"error");
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+        
+    if ([self respondsToSelector:@selector(timeout)]) {
+        [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else {
+        NSLog(@"error");
+    }
+    
+}
+
 #pragma mark - Helper Functions
+
 
 - (void) timeout {
     [self.navigationController popToRootViewControllerAnimated:YES];
